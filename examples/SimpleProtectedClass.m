@@ -22,4 +22,4 @@ classdef SimpleProtectedClass < handle
 
     end
 
-end
+end % SimpleProtectedClass
