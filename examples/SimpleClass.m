@@ -18,4 +18,4 @@ classdef SimpleClass < handle
 
     end
 
-end
+end % SimpleClass
