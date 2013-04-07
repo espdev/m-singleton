@@ -1,5 +1,5 @@
 function r = registry()
-    % Returns singleton instance for registry of singletons
+    % Returns singleton instance of singletons registry
     %
     % Usage:
     %   registry = singleton.registry()
@@ -11,7 +11,7 @@ function r = registry()
     %
     % See also: singleton.SingletonRegistry.getRegistry
     %
-    
+
     % ---------------------------------------------------------------------
     % Package   : singleton
     % Version   : 1.1
@@ -21,6 +21,6 @@ function r = registry()
     %
     % Copyright : (C) 2013 by Evgeny Prilepin
     % ---------------------------------------------------------------------
-    
+
     r = singleton.SingletonRegistry.getRegistry();
 end

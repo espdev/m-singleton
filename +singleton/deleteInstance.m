@@ -1,11 +1,11 @@
 function deleteInstance(classInfo)
-    % Destroys singleton instance of given class
+    % Destroys the singleton instance of a given class
     %
     % Usage:
     %   singleton.deleteInstance(classInfo)
     %
     % Arguments:
-    %   classInfo -- Name or meta.class object of given class.
+    %   classInfo -- Name or meta.class object of a given class.
     %
     % Example:
     %   imshow('cameraman.tif');
@@ -15,7 +15,7 @@ function deleteInstance(classInfo)
     %
     % See also: singleton.deleteAllInstances, singleton.SingletonFactory.deleteInstance
     %
-    
+
     % ---------------------------------------------------------------------
     % Package   : singleton
     % Version   : 1.1
@@ -25,6 +25,6 @@ function deleteInstance(classInfo)
     %
     % Copyright : (C) 2013 by Evgeny Prilepin
     % ---------------------------------------------------------------------
-    
+
     singleton.SingletonFactory.deleteInstance(classInfo);
 end

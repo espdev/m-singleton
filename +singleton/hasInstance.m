@@ -1,5 +1,5 @@
 function tf = hasInstance(classInfo)
-    % Returns true if instance of given class is exists as singleton
+    % Returns true if the instance of a given class exists as singleton
     %
     % Usage:
     %   tf = singleton.hasInstance(classInfo)
@@ -8,14 +8,14 @@ function tf = hasInstance(classInfo)
     %   instance = singleton.getInstance(classInfo)
     %
     % Returns:
-    %   tf -- true if instance of given class is exists
+    %   tf -- true if the instance of a given class exists
     %
     % Example:
     %   singleton.hasInstance(?containers.Map)
     %   map = singleton.getInstance(?containers.Map)
     %   singleton.hasInstance(?containers.Map)
     %
-    
+
     % ---------------------------------------------------------------------
     % Package   : singleton
     % Version   : 1.1
@@ -25,7 +25,7 @@ function tf = hasInstance(classInfo)
     %
     % Copyright : (C) 2013 by Evgeny Prilepin
     % ---------------------------------------------------------------------
-    
+
     r = singleton.registry();
     tf = r.hasInstance(classInfo);
 end

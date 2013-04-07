@@ -1,11 +1,11 @@
 function count = countInstances()
-    % Returns number of exists singleton instances
+    % Returns the number of the existing singleton instances
     %
     % Usage:
     %   count = singleton.countInstances()
     %
     % Returns:
-    %   count -- Number of exists singleton instances
+    %   count -- The number of the existing singleton instances
     %
     % Example:
     %   map = singleton.getInstance(?containers.Map)
@@ -13,7 +13,7 @@ function count = countInstances()
     %   singleton.deleteAllInstances()
     %   singleton.countInstances()
     %
-    
+
     % ---------------------------------------------------------------------
     % Package   : singleton
     % Version   : 1.1
@@ -23,7 +23,7 @@ function count = countInstances()
     %
     % Copyright : (C) 2013 by Evgeny Prilepin
     % ---------------------------------------------------------------------
-    
+
     r = singleton.registry();
     count = r.Count;
 end

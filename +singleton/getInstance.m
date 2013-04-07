@@ -1,18 +1,18 @@
 function instance = getInstance(classInfo, varargin)
-    % Returns singleton instance of given class
+    % Returns singleton instance of  a given class
     %
-    % If instance is not exists, function create it.
+    % If the instance does not exist, then the function will create it.
     %
     % Usage:
     %   instance = singleton.getInstance(classInfo)
     %   instance = singleton.getInstance(classInfo, varargin)
     %
     % Arguments:
-    %   classInfo -- Name or meta.class object of given class.
-    %   varargin  -- Any arguments, required given class.
+    %   classInfo -- Name or meta.class object of a given class.
+    %   varargin  -- Any arguments required for a given class.
     %
     % Returns:
-    %   instance  -- singleton instance of given class.
+    %   instance  -- singleton instance of a given class.
     %
     % Example:
     %   parser = singleton.getInstance(?inputParser)
@@ -21,7 +21,7 @@ function instance = getInstance(classInfo, varargin)
     %
     % See also: singleton.hasInstance, singleton.SingletonFactory.getInstance
     %
-    
+
     % ---------------------------------------------------------------------
     % Package   : singleton
     % Version   : 1.1
@@ -31,6 +31,6 @@ function instance = getInstance(classInfo, varargin)
     %
     % Copyright : (C) 2013 by Evgeny Prilepin
     % ---------------------------------------------------------------------
-    
+
     instance = singleton.SingletonFactory.getInstance(classInfo, varargin{:});
 end

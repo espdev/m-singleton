@@ -1,5 +1,5 @@
 function instances = getAllInstances()
-    % Returns all singleton instances in cell array
+    % Returns all singleton instances in the cell array
     %
     % Usage:
     %   instances = singleton.getAllInstances()
@@ -10,7 +10,7 @@ function instances = getAllInstances()
     %
     % See also: singleton.getInstance, singleton.SingletonFactory.getAllInstances
     %
-    
+
     % ---------------------------------------------------------------------
     % Package   : singleton
     % Version   : 1.1
@@ -20,7 +20,7 @@ function instances = getAllInstances()
     %
     % Copyright : (C) 2013 by Evgeny Prilepin
     % ---------------------------------------------------------------------
-    
+
     r = singleton.registry();
     instances = r.getAllInstances();
 end

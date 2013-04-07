@@ -1,10 +1,10 @@
 classdef (Sealed) SingletonFactory < handle
-    % Factory for create singleton-instances of any classes
+    % Factory creates singleton instances of any classes
     %
     % Description:
-    %   This class creates singleton instances of any classes (creates 
+    %   This class creates singleton instances of any classes (creates
     %   global objects).
-    %   
+    %
     %   Created instances will be stored in SingletonRegistry global object.
     %
     % Usage:
@@ -12,13 +12,13 @@ classdef (Sealed) SingletonFactory < handle
     %   instance = SingletonFactory.getInstance('ClassName')
     %
     % where
-    %   ?ClassName  -- Meta class object of given class
-    % 	'ClassName' -- Name of given class
+    %   ?ClassName  -- Meta class object of a given class
+    % 	'ClassName' -- Name of a given class
     %
     %
     % See also: SingletonRegistry
     %
-    
+
     % ---------------------------------------------------------------------
     % Package   : singleton
     % Version   : 1.1
@@ -28,27 +28,27 @@ classdef (Sealed) SingletonFactory < handle
     %
     % Copyright : (C) 2013 by Evgeny Prilepin
     % ---------------------------------------------------------------------
-    
+
     methods (Access = private)
-        
+
         function self = SingletonFactory()
             % Instance of "SingletonFactory" is not needed.
             % Provides only static methods.
         end
-        
+
     end
-    
-    
+
+
     methods (Static)
-        
+
         %------------------------------------------------------------------
         function instance = getInstance(classInfo, varargin)
-            % Returns a reference on singleton instance of given class
+            % Returns a reference to singleton instance of a given class
             %
             % Description:
-            %   This factory method returns a reference on singleton 
-            %   instance of given class. If instance is not exist, 
-            %   method creates it.
+            %   This factory method returns a reference to singleton
+            %   instance of a given class. If the instance does not exist,
+            %   method will create it.
             %
             % Usage:
             %   instance = SingletonFactory.getInstance(classInfo)
@@ -56,18 +56,19 @@ classdef (Sealed) SingletonFactory < handle
             %
             % Arguments:
             %   classInfo -- Info about class: Name or meta.class object.
-            %   varargin  -- Class constructor arguments . Will be set to
-            %                given class constructor if it is created.
+            %   varargin  -- Class constructor arguments. Arguments will be
+            %                setup in the constructor of a given class with the
+            %                class creation by this method.
             %
             % Return:
-            %   instance  -- Reference on singleton instance of given class
+            %   instance  -- Reference to singleton instance of a given class
             %
-            
+
             narginchk(1, Inf)
-            
+
             metaClass = getMetaClass(classInfo);
             r = singleton.registry();
-            
+
             if r.hasInstance(metaClass.Name)
                 instance = r.getInstance(metaClass.Name);
             else
@@ -75,10 +76,10 @@ classdef (Sealed) SingletonFactory < handle
                 r.addInstance(instance);
             end
         end
-        
+
         %------------------------------------------------------------------
         function deleteInstance(classInfo)
-            % Destroys a singleton instance of given class
+            % Destroys the singleton instance of a given class
             %
             % Usage:
             %   SingletonFactory.deleteInstance(classInfo)
@@ -88,58 +89,58 @@ classdef (Sealed) SingletonFactory < handle
             %
             % See also: deleteAllInstances
             %
-            
+
             narginchk(1, 1)
-            
+
             metaClass = getMetaClass(classInfo);
             r = singleton.registry();
-            
+
             r.deleteInstance(metaClass.Name);
         end
-        
+
         %------------------------------------------------------------------
         function deleteAllInstances()
             % Destroys all stored instances
             %
             % Description:
-            %   This method destroys all singleton instances stored in 
-            %   SingletonRegistry            
+            %   This method destroys all singleton instances stored in
+            %   SingletonRegistry
             %
             % Usage:
             %   SingletonFactory.deleteAllInstances()
             %
             % See also: deleteInstance
             %
-            
+
             r = singleton.registry();
             r.deleteAllInstances();
         end
-        
+
     end % Static Methods
-    
-    
+
+
     methods (Static, Access = private)
-        
+
         %------------------------------------------------------------------
         function instance = createInstance(metaClass, varargin)
-            % Creates an instance of given class
-            
+            % Creates the instance of a given class
+
             if ~isHandleClass(metaClass)
                 error('singleton:notHandleClass', ...
-                    'Class "%s" is not handle class. Class must be subclass of handle class.', ...
+                    'Class "%s" is not a handle class. Class must be the subclass of a handle class.', ...
                     metaClass.Name)
             end
-            
+
             try
                 constructInstance = str2func(metaClass.Name);
                 instance = constructInstance(varargin{:});
             catch e
                 error('singleton:createFailed', ...
-                    'Unable to create instance of class "%s".\n%s', ...
+                    'Unable to create the instance of a class "%s".\n%s', ...
                     metaClass.Name, e.message)
             end
         end
-        
+
     end % Static Private Methods
-    
+
 end % SingletonFactory

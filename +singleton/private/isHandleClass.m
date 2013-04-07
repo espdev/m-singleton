@@ -1,6 +1,6 @@
 function tf = isHandleClass(metaClass)
-    % Returns true if given class is handle class
-    
+    % Returns true if a given class is a handle class
+
     % ---------------------------------------------------------------------
     % Package   : singleton
     % Version   : 1.1
@@ -10,16 +10,16 @@ function tf = isHandleClass(metaClass)
     %
     % Copyright : (C) 2013 by Evgeny Prilepin
     % ---------------------------------------------------------------------
-    
+
     superClasses = metaClass.SuperclassList;
-    
+
     if isempty(superClasses)
         tf = false;
         return
     end
-    
+
     tf = ismember('handle', {metaClass.SuperclassList.Name});
-    
+
     if ~tf
         for i = 1:length(superClasses)
             tf = isHandleClass(superClasses(i));
