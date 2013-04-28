@@ -215,7 +215,7 @@ classdef (Sealed) SingletonRegistry < handle
         function registry = getRegistry()
             % Returns the reference to registry singleton instance
 
-            if ~mislocked('SingletonRegistry')
+            if ~mislocked('singleton.SingletonRegistry')
                 % Lock singleton object for guard
                 mlock
             end
@@ -233,8 +233,8 @@ classdef (Sealed) SingletonRegistry < handle
         function unlock()
             % Object unlock allows the global singleton removing from the memory
 
-            if mislocked('SingletonRegistry')
-                munlock('SingletonRegistry')
+            if mislocked('singleton.SingletonRegistry')
+                munlock('singleton.SingletonRegistry')
             end
         end
 
